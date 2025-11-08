@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class Balance {
 
-    private String accountNumber; // 🔹 Relación con Account
+    private String accountNumber; 
     private LocalDate date;
     private String description;
     private BigDecimal cashIn;
@@ -25,7 +25,7 @@ public class Balance {
         this.closingBalance = closingBalance;
     }
 
-    // 🔹 Nuevo getter y setter
+    
     public String getAccountNumber() {
         return accountNumber;
     }

@@ -51,7 +51,7 @@ public class App {
         System.out.print("Seleccione una opción: ");
     }
 
-    // --- ACCOUNT MENU ---
+    
     private static void runAccountMenu(Scanner sc) {
         boolean back = false;
         while (!back) {
@@ -138,7 +138,7 @@ public class App {
                     break;
 
                 case "2":
-                    String date = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD): ");
+                    String date = leerTextoSeguro(sc, "Ingrese fecha: ");
                     balanceService.findById(date, null)
                             .ifPresentOrElse(System.out::println,
                                     () -> System.out.println("Balance no encontrado."));
@@ -152,7 +152,7 @@ public class App {
                     break;
 
                 case "4":
-                    String upDate = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD) del balance a actualizar: ");
+                    String upDate = leerTextoSeguro(sc, "Ingrese fecha  del balance a actualizar: ");
                     Balance updateB = new Balance();
                     updateB.setDate(LocalDate.parse(upDate));
                     updateB.setDescription(leerTextoSeguro(sc, "Nueva descripción: "));
@@ -165,7 +165,7 @@ public class App {
                     break;
 
                 case "5":
-                    String delDate = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD) del balance a eliminar: ");
+                    String delDate = leerTextoSeguro(sc, "Ingrese fecha  del balance a eliminar: ");
                     boolean removed = balanceService.deleteById(delDate, null);
                     System.out.println(removed ? " Balance eliminado." : " No se encontró el balance.");
                     pause(sc);
@@ -201,7 +201,7 @@ public class App {
                     break;
 
                 case "2":
-                    String id = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD): ");
+                    String id = leerTextoSeguro(sc, "Ingrese fecha: ");
                     loansService.findById(id, null)
                             .ifPresentOrElse(System.out::println,
                                     () -> System.out.println(" Préstamo no encontrado."));
@@ -215,7 +215,7 @@ public class App {
                     break;
 
                 case "4":
-                    String upId = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD) del préstamo a actualizar: ");
+                    String upId = leerTextoSeguro(sc, "Ingrese fecha  del préstamo a actualizar: ");
                     Loans upLoan = new Loans();
                     upLoan.setDate(LocalDate.parse(upId));
                     upLoan.setType(leerTextoSeguro(sc, "Nuevo tipo: "));
@@ -228,7 +228,7 @@ public class App {
                     break;
 
                 case "5":
-                    String delId = leerTextoSeguro(sc, "Ingrese fecha (YYYY-MM-DD) del préstamo a eliminar: ");
+                    String delId = leerTextoSeguro(sc, "Ingrese fecha del préstamo a eliminar: ");
                     boolean deleted = loansService.deleteById(delId, null);
                     System.out.println(deleted ? " Préstamo eliminado." : " No se encontró el préstamo.");
                     pause(sc);
@@ -332,7 +332,7 @@ public class App {
                 valor = new BigDecimal(input);
                 valido = true;
             } catch (NumberFormatException e) {
-                System.out.println(" Valor inválido. Ingrese un número válido (ej: 1200.50).");
+                System.out.println(" Valor inválido. Ingrese un número válido .");
             }
         }
         return valor;
@@ -349,7 +349,7 @@ public class App {
     }
 
     private static void pause(Scanner sc) {
-        System.out.print("Presione ENTER para continuar...");
+        System.out.print(" ENTER para continuar.");
         sc.nextLine();
     }
 }
